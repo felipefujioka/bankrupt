@@ -26,3 +26,5 @@ cd bankrupt/results
 python pip install -r requirements.txt
 jupyter notebook
 ```
+
+Or visit https://github.com/felipefujioka/bankrupt/blob/master/results/bankrupt_stats.ipynb to see my calculated results.

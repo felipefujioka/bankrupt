@@ -21,7 +21,7 @@ That represent if a game has ended by timeout, the player style that won the mat
 
 The results of the simulation can be examined on the results folder. Run:
 
-````
+```
 cd bankrupt/results
 python pip install -r requirements.txt
 jupyter notebook

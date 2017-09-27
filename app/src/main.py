@@ -18,7 +18,7 @@
 
 # ---------------------------------------------------------------------------------------------------------
 
-from models import Board, Field, Player, Game
+from models import Board, Field, Player, Game, PlayerStyle
 
 entry = open('app/res/gameConfig.txt', 'r')
 
@@ -29,7 +29,39 @@ for line in entry:
 
 print('max_rounds,player_style,rounds')
 
+player_styles = {
+    PlayerStyle.IMPULSIVE: 0,
+    PlayerStyle.EXIGENT: 0,
+    PlayerStyle.CAUTIOUS: 0,
+    PlayerStyle.RANDOM: 0,
+}
+
+count_max_rounds = 0
+
+sum_round_count = 0
+
 for i in range(0,300):
     game = Game(Board(fields))
-    game.play_game()
+    max_rounds, player_style, round_count = game.play_game()
+
+    player_styles[player_style] += 1
+    if max_rounds:
+        count_max_rounds += 1
+
+    sum_round_count += round_count
+print('{} games ends in a  timeout, representing {:.2f}%'.format(count_max_rounds, count_max_rounds/300 * 100))
+print('the mean duration of a game is {:.2f} rounds'.format(sum_round_count/300))
+best_behavior = None
+max_victories = 0
+for player_style in player_styles:
+    if player_styles[player_style] > max_victories:
+        max_victories = player_styles[player_style]
+        best_behavior = player_style
+    print('{} wins {:.2f}% of games'.format(player_style, player_styles[player_style] / 300 * 100))
+
+print('The behavior that wins most of games is {}'.format(best_behavior))
+
+
+
+
     

@@ -158,10 +158,12 @@ class Game:
             self.round_count += 1
         
         if fin:
-            print('true,{},{}'.format(self.winner.style, self.round_count))
+            # print('true,{},{}'.format(self.winner.style, self.round_count))
+            return (False, self.winner.style, self.round_count)
         else:
             self.winner = self.best_player()
-            print('false,{},{}'.format(self.best_player().style, self.round_count))
-            # for player in self.players:
-            #     print('{} -> {}'.format(player.style, player.funds))
+            return (True, self.winner.style, self.round_count)
+            # print('false,{},{}'.format(self.best_player().style, self.round_count))
+            # # for player in self.players:
+            # #     print('{} -> {}'.format(player.style, player.funds))
                 

@@ -149,7 +149,7 @@ class Game:
     def print_funds(self):
         print('------------------------')
         for player in self.players:
-            print('{}: {}'.format(player.style, player.funds))
+            print('{}: {}, {}'.format(player.style, player.funds, self.board.fields.index(player.current_field)))
         print('------------------------')
 
     def play_game(self):
@@ -167,6 +167,7 @@ class Game:
                 if self.game_ended():
                     fin = True
             # uncomment to see the live game
+            # print('round: {}'.format(self.round_count))
             # self.board.print()
             # self.print_funds()
             aux_players = self.players

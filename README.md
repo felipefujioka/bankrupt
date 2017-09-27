@@ -13,9 +13,7 @@ cd bankrupt
 ./bin/run.sh
 ```
 
-The output will be in CSV (Comma separated values), featuring the following columns: max_rounds, player_style and rounds
-
-That represent if a game has ended by timeout, the player style that won the match and the number of rounds that took to end the game, respectively.
+The output will tell the number of games that ends in a timeout, the mean duration of a game, the number of times each player style has won, the player style that more frequently wins.
 
 ## Browsing results
 
@@ -28,3 +26,5 @@ jupyter notebook
 ```
 
 Or visit https://github.com/felipefujioka/bankrupt/blob/master/results/bankrupt_stats.ipynb to see my calculated results.
+
+A file with the records of a entire game can be found at `results/game.txt`.

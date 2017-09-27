@@ -27,8 +27,6 @@ fields = []
 for line in entry:
     fields.append(line.split())
 
-print('max_rounds,player_style,rounds')
-
 player_styles = {
     PlayerStyle.IMPULSIVE: 0,
     PlayerStyle.EXIGENT: 0,

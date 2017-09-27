@@ -89,6 +89,17 @@ class Board:
             idx = current_idx + steps - 20
             player.current_field = self.fields[idx]
 
+    def print(self):
+        print('---------------------------')
+        for field in self.fields:
+            print('{}: {} {} {}'.format(
+                self.fields.index(field),
+                field.selling_price,
+                field.rent_price,
+                field.owner.style if field.owner else 'None'
+                ))
+        print('---------------------------')
+
 class Game:
     board = None
     players = None
@@ -135,6 +146,12 @@ class Game:
             if field.owner is player:
                 field.owner = None
 
+    def print_funds(self):
+        print('------------------------')
+        for player in self.players:
+            print('{}: {}'.format(player.style, player.funds))
+        print('------------------------')
+
     def play_game(self):
         fin = False
         while self.round_count < 1000 and not fin:
@@ -149,6 +166,9 @@ class Game:
                     self.clean_player_properties(player)
                 if self.game_ended():
                     fin = True
+            # uncomment to see the live game
+            # self.board.print()
+            # self.print_funds()
             aux_players = self.players
             in_game = []
             for player in self.players:
@@ -158,12 +178,8 @@ class Game:
             self.round_count += 1
         
         if fin:
-            # print('true,{},{}'.format(self.winner.style, self.round_count))
             return (False, self.winner.style, self.round_count)
         else:
             self.winner = self.best_player()
             return (True, self.winner.style, self.round_count)
-            # print('false,{},{}'.format(self.best_player().style, self.round_count))
-            # # for player in self.players:
-            # #     print('{} -> {}'.format(player.style, player.funds))
                 

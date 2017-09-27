@@ -2,11 +2,11 @@
 
 ## Install
 
-This simulation runs on python 3.6.
+This simulation runs on python 3.4+, and requires just the builtin libraries.
 
 ## Running the test
 
-If you have an installation of python 3.4 or higher, just run:
+If you have an installation of python 3.4 or higher, just run (on UNIX like system):
 
 ```
 cd bankrupt
